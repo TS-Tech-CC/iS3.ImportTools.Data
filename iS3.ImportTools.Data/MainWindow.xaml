@@ -1,0 +1,33 @@
+﻿<Window x:Class="iS3.ImportTools.Data.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iS3.ImportTools.Data"
+        mc:Ignorable="d"
+        Title="iS3团标工具" Height="400" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Open"></MenuItem>
+                <MenuItem Header="Save"></MenuItem>
+                <MenuItem Header="Delete"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit"></MenuItem>
+            <MenuItem Header="View"></MenuItem>
+            <MenuItem Header="About"></MenuItem>
+        </Menu>
+        <TabControl Name="MainTab" SelectionChanged="MainTab_SelectionChanged" Grid.Row="1">
+            <TabItem Header="数据标准" Name="DataStandardTab">
+                
+            </TabItem>
+            <TabItem Header="数据录入" Name="DataImportTab">
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
