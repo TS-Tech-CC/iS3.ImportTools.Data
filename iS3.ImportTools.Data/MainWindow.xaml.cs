@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iS3.ImportTools.Core.Models;
+using iS3.ImportTools.DataStanardTool;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,8 @@ namespace iS3.ImportTools.Data
         public MainWindow()
         {
             InitializeComponent();
+            StandardLoader loader = new StandardLoader();
+            DataStandardDef standard = loader.Loadfile();
         }
 
         private void MainTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
