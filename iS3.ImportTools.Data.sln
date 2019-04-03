@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Data", "iS3.ImportTools.Data\iS3.ImportTools.Data.csproj", "{3AFF1A72-234C-4E01-AC4D-3118444D40FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Main", "iS3.ImportTools.Data\iS3.ImportTools.Main.csproj", "{3AFF1A72-234C-4E01-AC4D-3118444D40FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataStanardTool", "iS3.ImportTools.DataStanardTool\iS3.ImportTools.DataStanardTool.csproj", "{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Core", "iS3.ImportTools.Core\iS3.ImportTools.Core.csproj", "{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataFormatConverter", "iS3.ImportTools.DataFormatConverter\iS3.ImportTools.DataFormatConverter.csproj", "{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataPropertyMapping", "iS3.ImportTools.DataPropertyMapping\iS3.ImportTools.DataPropertyMapping.csproj", "{36102BB5-6449-4CF0-8E17-9A93FCCB5556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataVerification", "iS3.ImportTools.DataVerification\iS3.ImportTools.DataVerification.csproj", "{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36102BB5-6449-4CF0-8E17-9A93FCCB5556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36102BB5-6449-4CF0-8E17-9A93FCCB5556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36102BB5-6449-4CF0-8E17-9A93FCCB5556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36102BB5-6449-4CF0-8E17-9A93FCCB5556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,5 +16,19 @@ namespace iS3.ImportTools.Core.Models
         {
             DomainContainer = new List<DomainDef>();
         }
+        public DGObjectDef getDGObjectDefByCode(string Code)
+        {
+            foreach (var domain in DomainContainer)
+            {
+                foreach (var DGObject in domain.DGObjectContainer)
+                {
+                    if (DGObject.Code==Code)
+                    {
+                        return DGObject;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

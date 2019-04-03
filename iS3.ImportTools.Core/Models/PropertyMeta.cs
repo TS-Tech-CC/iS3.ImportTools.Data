@@ -16,5 +16,18 @@ namespace iS3.ImportTools.Core.Models
         public string DataType { get; set; }
         public string Unit { get; set; }
         public string Description { get; set; }
+        public PropertyMeta()
+        {
+
+        }
+        public PropertyMeta(string propertyName,string dataType,string unit,string description,string langStr, bool isKey = false)
+        {
+            this.LangStr = langStr;
+            this.PropertyName = propertyName;
+            this.DataType = dataType;
+            this.Unit = unit;
+            this.Description = description;
+            this.isKey = isKey;
+        }
     }
 }

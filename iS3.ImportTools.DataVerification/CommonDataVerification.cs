@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using iS3.ImportTools.Core.Interface;
 using iS3.ImportTools.Core.Models;
 
-namespace iS3.ImportTools.DataStanardTool.DSExporter
+namespace iS3.ImportTools.DataVerification
 {
-    public class Exporter_For_DLL : IDSExporter
+    public class CommonDataVerification : IDataVerification
     {
-        public bool Exporter(DataStandardDef dataStandard, string path)
+        public CommonDataFormat Verification(CommonDataFormat rawCDF)
         {
-            return true;
+            return rawCDF;
         }
     }
 }

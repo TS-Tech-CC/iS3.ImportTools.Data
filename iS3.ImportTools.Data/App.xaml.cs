@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace iS3.ImportTools.Data
+namespace iS3.ImportTools.Main
 {
     /// <summary>
     /// App.xaml 的交互逻辑
