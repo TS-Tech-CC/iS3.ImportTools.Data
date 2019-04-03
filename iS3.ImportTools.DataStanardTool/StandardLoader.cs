@@ -2,6 +2,7 @@
 using iS3.ImportTools.Core.Models;
 using System.IO;
 using iS3.ImportTools.DataStanardTool.DSImporter;
+using iS3.ImportTools.Core.Interface;
 
 namespace iS3.ImportTools.DataStanardTool
 {
@@ -13,24 +14,29 @@ namespace iS3.ImportTools.DataStanardTool
             this.path = AppDomain.CurrentDomain.BaseDirectory;
 
         }
-        public DataStandardDef Loadfile()
+        public DataStandardDef getStandard()
         {
-            var dlls = Directory.GetFiles(path, "*.dll");
+
+            //!!!!poay attention to other file which will affect the import process
+            IDSImporter importer = null;
+            importer = new Importer_For_Json();//!!
+            return importer.Import("");//!!
+            var dlls = Directory.GetFiles(path, "Geology.dll");
             if (!dlls.Equals(null))
             {
-                Importer_For_Dll importer = new Importer_For_Dll();
-                return importer.Import(dlls[0]);
+               importer = new Importer_For_Dll();
+               return importer.Import(dlls[0]);
             }
             var jsons = Directory.GetFiles(path, "*.json");
             if (!jsons.Equals(null))
             {
-                Importer_For_Json importer = new Importer_For_Json();
-                return importer.Import(jsons[0]);
+                importer = new Importer_For_Json();
+                return importer.Import("");
             }
             var xmls = Directory.GetFiles(path, "*.xml");
             if (!xmls.Equals(null))
             {
-                Importer_For_Xml importer = new Importer_For_Xml();
+                importer = new Importer_For_Xml();
                 return importer.Import(xmls[0]);
             }
             return null;

@@ -10,7 +10,7 @@ namespace iS3.ImportTools.DataStanardTool.DSExporter
 {
     public class Exporter_For_XML : IDSExporter
     {
-        public bool Exporter(DataStandardDef dataStandard, string path)
+        public bool Export(DataStandardDef dataStandard, string path)
         {
             return true;
         }

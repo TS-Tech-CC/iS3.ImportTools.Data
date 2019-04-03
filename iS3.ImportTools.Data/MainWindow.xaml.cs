@@ -1,5 +1,7 @@
 ﻿using iS3.ImportTools.Core.Models;
 using iS3.ImportTools.Core.Interface;
+using iS3.ImportTools.DataStanardTool;
+using iS3.ImportTools.DataStanardTool.DSExporter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +35,14 @@ namespace iS3.ImportTools.Main
         {
             //step1 : find the aim object def
             string aimDGObjectType = "Borehole";
-            IDSImporter idsImporter = null;
-            DataStandardDef def = idsImporter.Import(null);
-            DGObjectDef aimDGObjectDef = def.getDGObjectDefByCode(aimDGObjectType);
+            StandardLoader loader = new StandardLoader();//get standard from local json file in debug catagory
+            //IDSImporter idsImporter = null;
+            //DataStandardDef def = idsImporter.Import(null);
+            DataStandardDef standard = loader.getStandard();
+            IDSExporter exporter = new Exporter_For_JSON();
+            exporter.Export(standard,AppDomain.CurrentDomain.BaseDirectory);//输出
+
+            DGObjectDef aimDGObjectDef = standard.getDGObjectDefByCode(aimDGObjectType);
 
             //step2 : create a instance of dataSchema for data importer
             DataSchema dataSchema = new DataSchema();

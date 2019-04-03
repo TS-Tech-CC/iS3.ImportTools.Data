@@ -1,10 +1,9 @@
-﻿using iS3.ImportTools.Core.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.IO;
+using iS3.ImportTools.Core.Interface;
 using iS3.ImportTools.Core.Models;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace iS3.ImportTools.DataStanardTool.DSImporter
 {
@@ -12,7 +11,8 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
     {
         public DataStandardDef Import(string path)
         {
-            return GetSample();
+            return readJson(path);
+            //!!return GetSample();
         }
         public DataStandardDef GetSample()
         {
@@ -43,6 +43,39 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
             dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeTime", "dateTime", null, "这是钻孔时间", "['zh':'钻孔时间','en':'BoreholeTime']", true));
             dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeDepth", "double", "m", "这是钻孔深度", "['zh':'钻孔深度','en':'BoreholeDepth']", true));
             return dsDef;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public DataStandardDef readJson(string path)
+        {
+            
+            var fullPath = Directory.GetFiles(path, "*.txt");
+
+            if (!(fullPath[0] == null))
+            {
+                FileStream fs = new FileStream(fullPath[0], FileMode.Open, FileAccess.Read);
+                int n = (int)fs.Length;
+                byte[] b = new byte[n];
+                int r = fs.Read(b, 0, n);
+                string json = Encoding.Default.GetString(b, 0, n);
+                DataStandardDef standard = JsonConvert.DeserializeObject<DataStandardDef>(json);
+                return standard;
+            }
+            else
+            {
+                //
+                if (true)
+                {
+                    int a, b;
+                    a = 1;
+                    b = 1;
+                    a = b;
+                    return null;
+                }
+            }
         }
     }
 }
