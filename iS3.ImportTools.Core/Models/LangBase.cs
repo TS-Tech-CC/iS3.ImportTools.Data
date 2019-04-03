@@ -21,4 +21,6 @@ namespace iS3.ImportTools.Core.Models
         }
     }
     public class LangDict : Dictionary<LangType, string> { }
+
+    public class abc { }
 }
