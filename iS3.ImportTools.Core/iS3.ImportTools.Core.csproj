@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>iS3.ImportTools.Core</RootNamespace>
     <AssemblyName>iS3.ImportTools.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,14 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IDataFormatConverter.cs" />
+    <Compile Include="Interface\IDataVerification.cs" />
     <Compile Include="Interface\IDSExporter.cs" />
     <Compile Include="Interface\IDSImporter.cs" />
+    <Compile Include="Interface\IPropertyMapping.cs" />
+    <Compile Include="Models\CommonDataFormat.cs" />
+    <Compile Include="Models\DataSchema.cs" />
     <Compile Include="Models\DataStandardDef.cs" />
     <Compile Include="Models\DGObjectDef.cs" />
     <Compile Include="Models\DomainDef.cs" />
     <Compile Include="Models\LangBase.cs" />
+    <Compile Include="Models\LangType.cs" />
     <Compile Include="Models\PropertyMeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

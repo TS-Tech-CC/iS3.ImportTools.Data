@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}</ProjectGuid>
+    <ProjectGuid>{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>iS3.ImportTools.DataStanardTool</RootNamespace>
-    <AssemblyName>iS3.ImportTools.DataStanardTool</AssemblyName>
+    <RootNamespace>iS3.ImportTools.DataFormatConverter</RootNamespace>
+    <AssemblyName>iS3.ImportTools.DataFormatConverter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -41,12 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSExporter\Exporter_For_DLL.cs" />
-    <Compile Include="DSExporter\Exporter_For_JSON.cs" />
-    <Compile Include="DSExporter\Exporter_For_XML.cs" />
-    <Compile Include="DSImporter\Importer_For_DLL.cs" />
-    <Compile Include="DSImporter\Importer_For_JSON.cs" />
-    <Compile Include="DSImporter\Importer_For_XML.cs" />
+    <Compile Include="DataFormatConvert_For_TXT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

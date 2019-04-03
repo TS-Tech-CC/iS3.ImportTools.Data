@@ -6,13 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3AFF1A72-234C-4E01-AC4D-3118444D40FC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>iS3.ImportTools.Data</RootNamespace>
-    <AssemblyName>iS3.ImportTools.Data</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>iS3.ImportTools.Main</RootNamespace>
+    <AssemblyName>iS3.ImportTools.Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,6 +93,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\iS3.ImportTools.Core\iS3.ImportTools.Core.csproj">
+      <Project>{afcc1b7c-fa3d-40a7-9e02-b206288f74ec}</Project>
+      <Name>iS3.ImportTools.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iS3.ImportTools.DataFormatConverter\iS3.ImportTools.DataFormatConverter.csproj">
+      <Project>{27ea67d6-9ad6-4c07-b819-cc23d90d7aee}</Project>
+      <Name>iS3.ImportTools.DataFormatConverter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iS3.ImportTools.DataPropertyMapping\iS3.ImportTools.DataPropertyMapping.csproj">
+      <Project>{36102bb5-6449-4cf0-8e17-9a93fccb5556}</Project>
+      <Name>iS3.ImportTools.DataPropertyMapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iS3.ImportTools.DataStanardTool\iS3.ImportTools.DataStanardTool.csproj">
+      <Project>{e1593e9e-e9e0-45ac-a1d1-79354bff5a05}</Project>
+      <Name>iS3.ImportTools.DataStanardTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iS3.ImportTools.DataVerification\iS3.ImportTools.DataVerification.csproj">
+      <Project>{e4a2fcbc-98ad-4f96-95cd-19b144aa6ae4}</Project>
+      <Name>iS3.ImportTools.DataVerification</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

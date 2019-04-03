@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using iS3.ImportTools.Core.Interface;
 using iS3.ImportTools.Core.Models;
 
-namespace iS3.ImportTools.DataStanardTool.DSExporter
+namespace iS3.ImportTools.DataFormatConverter
 {
-    public class Exporter_For_DLL : IDSExporter
+    public class DataFormatConvert_For_TXT : IDataFormatConverter
     {
-        public bool Exporter(DataStandardDef dataStandard, string path)
+        public CommonDataFormat Convert(string rawData)
         {
-            return true;
+            return new CommonDataFormat();
         }
     }
 }
