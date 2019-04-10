@@ -14,7 +14,7 @@ namespace iS3.ImportTools.DataStanardTool
             this.path = AppDomain.CurrentDomain.BaseDirectory;
 
         }
-        public DataStandardDef getStandard()
+        public PmEntiretyDef getStandard()
         {
 
             //!!!!poay attention to other file which will affect the import process

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace iS3.ImportTools.Core.Models
 {
-  public  class DGObjectDef:LangBase
+  public  class PmDGObjectDef:LngBase
     { 
         public string Code { get; set; }
         public string Desctiption { get; set; }
         public List<PropertyMeta> PropertyContainer { get; set; }
-        public DGObjectDef()
+        public PmDGObjectDef()
         {
             PropertyContainer = new List<PropertyMeta>();
         }

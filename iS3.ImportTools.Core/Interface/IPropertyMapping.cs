@@ -11,6 +11,6 @@ namespace iS3.ImportTools.Core.Interface
     public interface IPropertyMapping
     {
         Dictionary<string,string> MappingRule { get; set; }
-        CommonDataFormat Mapping(CommonDataFormat rawCDF);
+        DataCarrier Mapping(DataCarrier rawCDF);
     }
 }

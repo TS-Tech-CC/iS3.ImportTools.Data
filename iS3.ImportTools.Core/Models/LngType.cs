@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iS3.ImportTools.Core.Models
 {
-    public enum LangType
+    public enum LngType
     {
         [Description("阿拉伯文")]
         ar = 0,

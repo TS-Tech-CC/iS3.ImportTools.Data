@@ -12,6 +12,6 @@ namespace iS3.ImportTools.Core.Interface
     //
     public interface IDSImporter
     {
-        DataStandardDef Import(string path);
+        PmEntiretyDef Import(string path);
     }
 }

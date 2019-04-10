@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace iS3.ImportTools.Core.Models
 {
-    public class DataStandardDef:LangBase
+    public class PmEntiretyDef:LngBase
     {
         public string Code { get; set; }
         public string Description { get; set; }
 
-        public List<DomainDef> DomainContainer { get; set; }
-        public DataStandardDef()
+        public List<PmDomainDef> DomainContainer { get; set; }
+        public PmEntiretyDef()
         {
-            DomainContainer = new List<DomainDef>();
+            DomainContainer = new List<PmDomainDef>();
         }
-        public DGObjectDef getDGObjectDefByCode(string Code)
+        public PmDGObjectDef getDGObjectDefByCode(string Code)
         {
             foreach (var domain in DomainContainer)
             {

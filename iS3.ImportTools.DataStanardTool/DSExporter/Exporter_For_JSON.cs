@@ -11,11 +11,11 @@ namespace iS3.ImportTools.DataStanardTool.DSExporter
 {
     public class Exporter_For_JSON : IDSExporter
     {
-        public bool Export(DataStandardDef dataStandard, string path)
+        public bool Export(PmEntiretyDef dataStandard, string path)
         {            
             return write2Json(dataStandard,path).Equals(null);
         }
-        public string write2Json(DataStandardDef dataStandard,string path)
+        public string write2Json(PmEntiretyDef dataStandard,string path)
         {
             string json =JsonConvert.SerializeObject(dataStandard);
 

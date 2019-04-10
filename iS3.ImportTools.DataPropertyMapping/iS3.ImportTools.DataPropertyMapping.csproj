@@ -44,13 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonPropertyMapping.cs" />
+    <Compile Include="DataPropertyMapping_ForFS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iS3.ImportTools.Core\iS3.ImportTools.Core.csproj">
       <Project>{afcc1b7c-fa3d-40a7-9e02-b206288f74ec}</Project>
       <Name>iS3.ImportTools.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iS3.ImportTools.DataStanardTool\iS3.ImportTools.DataStanardTool.csproj">
+      <Project>{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}</Project>
+      <Name>iS3.ImportTools.DataStanardTool</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

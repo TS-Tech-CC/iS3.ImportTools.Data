@@ -9,16 +9,16 @@ namespace iS3.ImportTools.Core.Models
     /// <summary>
     /// Domain which refers to specific engineering field
     /// </summary>
-    public class DomainDef:LangBase
+    public class PmDomainDef:LngBase
     {
         public string Code { get; set; }
 
         public string Desciption { get; set; }
-        public List<DGObjectDef> DGObjectContainer { get; set; }
+        public List<PmDGObjectDef> DGObjectContainer { get; set; }
 
-        public DomainDef()
+        public PmDomainDef()
         {
-            DGObjectContainer = new List<DGObjectDef>();
+            DGObjectContainer = new List<PmDGObjectDef>();
         }
     }
 }

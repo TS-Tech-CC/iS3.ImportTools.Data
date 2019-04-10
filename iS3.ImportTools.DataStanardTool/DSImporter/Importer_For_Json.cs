@@ -9,20 +9,20 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
 {
     public class Importer_For_Json : IDSImporter
     {
-        public DataStandardDef Import(string path)
+        public PmEntiretyDef Import(string path)
         {
             return readJson(path);
             //!!return GetSample();
         }
-        public DataStandardDef GetSample()
+        public PmEntiretyDef GetSample()
         {
             //定义隧道数据标准和地质域
-            DataStandardDef dsDef = new DataStandardDef()
+            PmEntiretyDef dsDef = new PmEntiretyDef()
             {
                 Code = "TunnelStandard",
                 Description = "This a Tunnel DataStandard",
             };
-            DomainDef ddDef = new DomainDef()
+            PmDomainDef ddDef = new PmDomainDef()
             {
                 Code = "Geology",
                 Desciption = "This a Geology Domain",
@@ -30,7 +30,7 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
             dsDef.DomainContainer.Add(ddDef);
 
             //定义地质域内的数据结构
-            DGObjectDef dgDef = new DGObjectDef()
+            PmDGObjectDef dgDef = new PmDGObjectDef()
             {
                 Code = "Borehole",
                 Desctiption = "This a Borehole DGObject"
@@ -49,7 +49,7 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public DataStandardDef readJson(string path)
+        public PmEntiretyDef readJson(string path)
         {
             
             var fullPath = Directory.GetFiles(path, "*.txt");
@@ -61,7 +61,7 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
                 byte[] b = new byte[n];
                 int r = fs.Read(b, 0, n);
                 string json = Encoding.Default.GetString(b, 0, n);
-                DataStandardDef standard = JsonConvert.DeserializeObject<DataStandardDef>(json);
+                PmEntiretyDef standard = JsonConvert.DeserializeObject<PmEntiretyDef>(json);
                 return standard;
             }
             else

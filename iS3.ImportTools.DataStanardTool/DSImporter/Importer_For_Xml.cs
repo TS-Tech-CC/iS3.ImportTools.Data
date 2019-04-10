@@ -10,7 +10,7 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
 {
     public class Importer_For_Xml : IDSImporter
     {
-        public DataStandardDef Import(string path)
+        public PmEntiretyDef Import(string path)
         {
             return null;
         }

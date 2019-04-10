@@ -52,13 +52,13 @@
     <Compile Include="Interface\IDSExporter.cs" />
     <Compile Include="Interface\IDSImporter.cs" />
     <Compile Include="Interface\IPropertyMapping.cs" />
-    <Compile Include="Models\CommonDataFormat.cs" />
+    <Compile Include="Models\DataCarrier.cs" />
     <Compile Include="Models\DataSchema.cs" />
-    <Compile Include="Models\DataStandardDef.cs" />
-    <Compile Include="Models\DGObjectDef.cs" />
-    <Compile Include="Models\DomainDef.cs" />
-    <Compile Include="Models\LangBase.cs" />
-    <Compile Include="Models\LangType.cs" />
+    <Compile Include="Models\PmEntiretyDef.cs" />
+    <Compile Include="Models\PmDGObjectDef.cs" />
+    <Compile Include="Models\PmDomainDef.cs" />
+    <Compile Include="Models\LngBase.cs" />
+    <Compile Include="Models\LngType.cs" />
     <Compile Include="Models\PropertyMeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

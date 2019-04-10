@@ -15,6 +15,6 @@ namespace iS3.ImportTools.Core.Interface
     {
         // data source may be different,
         // take string data for example
-        CommonDataFormat Convert(string rawData);
+        DataCarrier Convert(string rawData);
     }
 }
