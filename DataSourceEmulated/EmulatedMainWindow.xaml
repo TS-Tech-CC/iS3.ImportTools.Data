@@ -1,0 +1,32 @@
+﻿<Window x:Class="DataSourceEmulated.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSourceEmulated"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="500"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Header="SQL" Grid.Row="0">
+            <ContentControl x:Name="SQLCC"/>
+        </GroupBox>
+        <GroupBox Header="TCP" Grid.Row="1">
+            <ContentControl x:Name="TCPCC"/>
+        </GroupBox>
+        <GroupBox Header="NetMQ" Grid.Row="2">
+            <ContentControl x:Name="NetMQCC"/>
+        </GroupBox>
+        <GroupBox Header="SignalR" Grid.Row="3">
+            <ContentControl x:Name="SignalRCC"/>
+        </GroupBox>
+        
+    </Grid>
+</Window>

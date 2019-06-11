@@ -1,19 +1,47 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Main", "iS3.ImportTools.Data\iS3.ImportTools.Main.csproj", "{3AFF1A72-234C-4E01-AC4D-3118444D40FC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataStanardTool", "iS3.ImportTools.DataStanardTool\iS3.ImportTools.DataStanardTool.csproj", "{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Core", "iS3.ImportTools.Core\iS3.ImportTools.Core.csproj", "{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataFormatConverter", "iS3.ImportTools.DataFormatConverter\iS3.ImportTools.DataFormatConverter.csproj", "{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSourceEmulated", "DataSourceEmulated\DataSourceEmulated.csproj", "{8D507B13-DB5C-4999-8437-63525C8D25E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataPropertyMapping", "iS3.ImportTools.DataPropertyMapping\iS3.ImportTools.DataPropertyMapping.csproj", "{36102BB5-6449-4CF0-8E17-9A93FCCB5556}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iS3.ImportTools.DataAcquire", "iS3.ImportTools.DataAcquire", "{1CD7DF91-2CD1-4F8C-B093-810EF0043850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.DataVerification", "iS3.ImportTools.DataVerification\iS3.ImportTools.DataVerification.csproj", "{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iS3.ImportTools.Main", "iS3.ImportTools.Main\iS3.ImportTools.Main.csproj", "{3AFF1A72-234C-4E01-AC4D-3118444D40FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iS3.ImportTools.DataFormatConverter", "iS3.ImportTools.DataFormatConverter", "{4586DFFD-0DA7-46A1-B279-D9A5E37DAE06}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iS3.ImportTools.DataPropertyMapping", "iS3.ImportTools.DataPropertyMapping", "{24CD4A8F-96AE-4E21-8105-801D9C65CCDC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iS3.ImportTools.DataVerification", "iS3.ImportTools.DataVerification", "{CAEEA781-9D6D-4A85-A588-B62D983CE6E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquire_NetMQ", "iS3.ImportTools.DataAcquire\DataAcquire_NetMQ\DataAcquire_NetMQ.csproj", "{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquire_SignalR", "iS3.ImportTools.DataAcquire\DataAcquire_SignalR\DataAcquire_SignalR.csproj", "{9A594C60-BE91-4ACC-9BC6-6376B846556E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquire_SQL", "iS3.ImportTools.DataAcquire\DataAcquire_SQL\DataAcquire_SQL.csproj", "{412BE99E-B40E-43C7-946A-8BE8401450D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcquire_TCP", "iS3.ImportTools.DataAcquire\DataAcquire_TCP\DataAcquire_TCP.csproj", "{FDE49D13-31BB-4B7F-B657-1B06D1685285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFormatConverter_A", "iS3.ImportTools.DataFormatConverter\DataFormatConverter_A\DataFormatConverter_A.csproj", "{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPropertyMapping_A", "iS3.ImportTools.DataPropertyMapping\DataPropertyMapping_A\DataPropertyMapping_A.csproj", "{36102BB5-6449-4CF0-8E17-9A93FCCB5556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataVerification_A", "iS3.ImportTools.DataVerification\DataVerification_A\DataVerification_A.csproj", "{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataFormatConverter_DataTable", "iS3.ImportTools.DataFormatConverter\DataFormatConverter_DataTable\DataFormatConverter_DataTable.csproj", "{FD72097E-E2F5-4BEE-A47A-539108F74A05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iS3.ImportTools.DataWriting", "iS3.ImportTools.DataWriting", "{207D5F72-6B42-431B-A9AA-ACF034C30C07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWriting_SingleTable", "iS3.ImportTools.DataWriting\DataWriting_SingleTable\DataWriting_SingleTable.csproj", "{39DD9753-C67B-472E-B382-68DC900AB268}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWriting_MultiTableTime", "iS3.ImportTools.DataWriting\DataWriting_MultiTableTime\DataWriting_MultiTableTime.csproj", "{E2B44191-BA4A-4D43-8195-CBC7F955D9EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWriting_MultiTableCount", "iS3.ImportTools.DataWriting\DataWriting_MultiTableCount\DataWriting_MultiTableCount.csproj", "{F8A1C42A-0B48-4079-BA62-BA811123C6B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +49,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1593E9E-E9E0-45AC-A1D1-79354BFF5A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +57,30 @@ Global
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCC1B7C-FA3D-40A7-9E02-B206288F74EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D507B13-DB5C-4999-8437-63525C8D25E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D507B13-DB5C-4999-8437-63525C8D25E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D507B13-DB5C-4999-8437-63525C8D25E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D507B13-DB5C-4999-8437-63525C8D25E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AFF1A72-234C-4E01-AC4D-3118444D40FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A594C60-BE91-4ACC-9BC6-6376B846556E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A594C60-BE91-4ACC-9BC6-6376B846556E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A594C60-BE91-4ACC-9BC6-6376B846556E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A594C60-BE91-4ACC-9BC6-6376B846556E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{412BE99E-B40E-43C7-946A-8BE8401450D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412BE99E-B40E-43C7-946A-8BE8401450D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412BE99E-B40E-43C7-946A-8BE8401450D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412BE99E-B40E-43C7-946A-8BE8401450D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDE49D13-31BB-4B7F-B657-1B06D1685285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDE49D13-31BB-4B7F-B657-1B06D1685285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDE49D13-31BB-4B7F-B657-1B06D1685285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDE49D13-31BB-4B7F-B657-1B06D1685285}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,8 +93,40 @@ Global
 		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD72097E-E2F5-4BEE-A47A-539108F74A05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD72097E-E2F5-4BEE-A47A-539108F74A05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD72097E-E2F5-4BEE-A47A-539108F74A05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD72097E-E2F5-4BEE-A47A-539108F74A05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39DD9753-C67B-472E-B382-68DC900AB268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39DD9753-C67B-472E-B382-68DC900AB268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39DD9753-C67B-472E-B382-68DC900AB268}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39DD9753-C67B-472E-B382-68DC900AB268}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2B44191-BA4A-4D43-8195-CBC7F955D9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2B44191-BA4A-4D43-8195-CBC7F955D9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2B44191-BA4A-4D43-8195-CBC7F955D9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2B44191-BA4A-4D43-8195-CBC7F955D9EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB2F3F8E-79F5-4F13-9441-AAD9F0D51824} = {1CD7DF91-2CD1-4F8C-B093-810EF0043850}
+		{9A594C60-BE91-4ACC-9BC6-6376B846556E} = {1CD7DF91-2CD1-4F8C-B093-810EF0043850}
+		{412BE99E-B40E-43C7-946A-8BE8401450D7} = {1CD7DF91-2CD1-4F8C-B093-810EF0043850}
+		{FDE49D13-31BB-4B7F-B657-1B06D1685285} = {1CD7DF91-2CD1-4F8C-B093-810EF0043850}
+		{27EA67D6-9AD6-4C07-B819-CC23D90D7AEE} = {4586DFFD-0DA7-46A1-B279-D9A5E37DAE06}
+		{36102BB5-6449-4CF0-8E17-9A93FCCB5556} = {24CD4A8F-96AE-4E21-8105-801D9C65CCDC}
+		{E4A2FCBC-98AD-4F96-95CD-19B144AA6AE4} = {CAEEA781-9D6D-4A85-A588-B62D983CE6E4}
+		{FD72097E-E2F5-4BEE-A47A-539108F74A05} = {4586DFFD-0DA7-46A1-B279-D9A5E37DAE06}
+		{39DD9753-C67B-472E-B382-68DC900AB268} = {207D5F72-6B42-431B-A9AA-ACF034C30C07}
+		{E2B44191-BA4A-4D43-8195-CBC7F955D9EC} = {207D5F72-6B42-431B-A9AA-ACF034C30C07}
+		{F8A1C42A-0B48-4079-BA62-BA811123C6B1} = {207D5F72-6B42-431B-A9AA-ACF034C30C07}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F7A4CA5-2180-4E5B-A914-343FBED58521}
 	EndGlobalSection
 EndGlobal

@@ -9,25 +9,28 @@ namespace iS3.ImportTools.Core.Models
     /// <summary>
     /// attributes of perporty
     /// </summary>
-   public class PropertyMeta:LangBase
+    public class PropertyMeta:LngBase
     {
         public bool isKey { get; set; }
+        public bool NotNull { get; set; }
         public string PropertyName { get; set; }
-        public string DataType { get; set; }
+        public Type DataType { get; set; }
         public string Unit { get; set; }
         public string Description { get; set; }
+
         public PropertyMeta()
         {
 
         }
-        public PropertyMeta(string propertyName,string dataType,string unit,string description,string langStr, bool isKey = false)
+        public PropertyMeta(string propertyName,Type dataType,string unit,string description,string lngStr, bool isKey = false,bool notNull = true)
         {
-            this.LangStr = langStr;
+            this.LngStr = lngStr;
             this.PropertyName = propertyName;
             this.DataType = dataType;
             this.Unit = unit;
             this.Description = description;
             this.isKey = isKey;
+            this.NotNull = notNull;
         }
     }
 }

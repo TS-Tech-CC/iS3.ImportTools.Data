@@ -14,6 +14,6 @@ namespace iS3.ImportTools.Core.Interface
     {
         //export dataStandard to ...
         //return the state of export
-        bool Exporter(DataStandardDef dataStandard,string path);
+        bool Export(PmEntiretyDef dataStandard,string path);
     }
 }

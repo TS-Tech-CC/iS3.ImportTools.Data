@@ -30,7 +30,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,12 +54,17 @@
     <Compile Include="DSImporter\Importer_For_JSON.cs" />
     <Compile Include="DSImporter\Importer_For_XML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StandardLoader.cs" />
+    <Compile Include="StandardWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iS3.ImportTools.Core\iS3.ImportTools.Core.csproj">
       <Project>{afcc1b7c-fa3d-40a7-9e02-b206288f74ec}</Project>
       <Name>iS3.ImportTools.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

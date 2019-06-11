@@ -8,6 +8,6 @@ namespace iS3.ImportTools.Core.Interface
 {
     public interface IDataVerification
     {
-        CommonDataFormat Verification(CommonDataFormat rawCDF);
+        DataCarrier Verification(DataCarrier rawCDF);
     }
 }

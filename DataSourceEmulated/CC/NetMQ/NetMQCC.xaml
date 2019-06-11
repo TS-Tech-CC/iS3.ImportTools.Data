@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="DataSourceEmulated.CC.NetMQCC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DataSourceEmulated.CC"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <ComboBox Name="cbNetMQIP"   Height="25" Width="120" Margin="5,5,0,0"   VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox Name="tbNetMQPort"  Height="25" Width="80"  Margin="140,5,0,0"  VerticalAlignment="Top" Text="60001"     HorizontalAlignment="Left"/>
+        <ToggleButton x:Name="BtnNetMQ" Height="25" Width="80" Margin="5,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" Checked="BtnNetMQ_Checked" Unchecked="BtnNetMQ_Unchecked"/>
+        <Label x:Name="lbNetMQContent" Background="AliceBlue" Margin="100,40,5,10"/>
+    </Grid>
+</UserControl>

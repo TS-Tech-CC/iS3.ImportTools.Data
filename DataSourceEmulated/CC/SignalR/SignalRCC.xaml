@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="DataSourceEmulated.CC.SignalRCC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DataSourceEmulated.CC"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <TextBox Text="http://127.0.0.1:55138/signalr" Height="25" Margin="5,5,100,0" VerticalAlignment="Top" IsReadOnly="True"/>
+        <TextBox Text="SignalRHub" Height="25" Margin="0,5,10,0" VerticalAlignment="Top" IsReadOnly="True" HorizontalAlignment="Right" Width="80"/>
+
+        <ToggleButton x:Name="BtnSignalR" Height="25" Width="80" Margin="5,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Focusable="False" Checked="BtnSignalR_Checked" Unchecked="BtnSignalR_Unchecked"/>
+        <Label x:Name="lbSignalRContent" Background="AliceBlue" Margin="100,40,5,10"/>
+    </Grid>
+</UserControl>
