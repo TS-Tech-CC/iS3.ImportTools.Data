@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iS3.ImportTools.Core.Models
 {
-    public class PmEntiretyDef:LngBase
+    public class PmEntiretyDef:LangBase
     {
         public string Code { get; set; }
         public string Description { get; set; }
@@ -16,17 +16,19 @@ namespace iS3.ImportTools.Core.Models
         {
             DomainContainer = new List<PmDomainDef>();
         }
-        public PmDGObjectDef getDGObjectDefByCode(string Code)
+        public PmDGObjectDef GetDGObjectDefByCode(string Code)
+        {
+            foreach (PmDomainDef domain in DomainContainer)
+            {
+                return domain.DGObjectContainer.Find(DGObject => DGObject.Code == Code);
+            }
+            return null;
+        }
+        public PmDGObjectDef GetDGObjectDefByName(string name)
         {
             foreach (var domain in DomainContainer)
             {
-                foreach (var DGObject in domain.DGObjectContainer)
-                {
-                    if (DGObject.Code==Code)
-                    {
-                        return DGObject;
-                    }
-                }
+                return domain.DGObjectContainer.Find(DGObject => DGObject.LangStr == name);
             }
             return null;
         }

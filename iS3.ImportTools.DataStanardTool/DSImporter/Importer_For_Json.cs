@@ -11,9 +11,14 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
     {
         public PmEntiretyDef Import(string path)
         {
-            return readJson(path);
-            //!!return GetSample();
+            path = path ?? (AppDomain.CurrentDomain.BaseDirectory + @"Standard\Geology.json");
+            return ReadJson(path);
+            //return GetSample();
         }
+        /// <summary>
+        /// just for test
+        /// </summary>
+        /// <returns></returns>
         public PmEntiretyDef GetSample()
         {
             //定义隧道数据标准和地质域
@@ -38,10 +43,10 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
             ddDef.DGObjectContainer.Add(dgDef);
 
             //定义钻孔中的属性内容
-            dgDef.PropertyContainer.Add(new PropertyMeta("ID", typeof(int),      null,   "这是编号字段", "['zh':'编号','en':'ID']",                  true , true));
-            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeID", typeof(string),   null,   "这是钻孔编号", "['zh':'钻孔编号','en':'BoreholeID']",      false, false));
-            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeTime", typeof(DateTime), null,   "这是钻孔时间", "['zh':'钻孔时间','en':'BoreholeTime']",    false, false));
-            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeDepth", typeof(double),   "m",    "这是钻孔深度", "['zh':'钻孔深度','en':'BoreholeDepth']",   false, false));
+            dgDef.PropertyContainer.Add(new PropertyMeta("ID",              "int",      null,   "这是编号字段", "['zh':'编号','en':'ID']",                  true,     false,    regularExpression: @"\d"));
+            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeID",      "string",   null,   "这是钻孔编号", "['zh':'钻孔编号','en':'BoreholeID']",      false,    true,   regularExpression: @""));
+            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeTime",    "dateTime", null,   "这是钻孔时间", "['zh':'钻孔时间','en':'BoreholeTime']",    false,    true));
+            dgDef.PropertyContainer.Add(new PropertyMeta("BoreholeDepth",   "double",   "m",    "这是钻孔深度", "['zh':'钻孔深度','en':'BoreholeDepth']",   false,    true));
             return dsDef;
         }
         /// <summary>
@@ -49,33 +54,23 @@ namespace iS3.ImportTools.DataStanardTool.DSImporter
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public PmEntiretyDef readJson(string path)
+        public PmEntiretyDef ReadJson(string path)
         {
-            
-            var fullPath = Directory.GetFiles(path, "*.txt");
-
-            if (!(fullPath[0] == null))
+            if (path != null)
             {
-                FileStream fs = new FileStream(fullPath[0], FileMode.Open, FileAccess.Read);
-                int n = (int)fs.Length;
-                byte[] b = new byte[n];
-                int r = fs.Read(b, 0, n);
-                string json = Encoding.Default.GetString(b, 0, n);
+                FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                StreamReader streamReader = new StreamReader(fs, Encoding.UTF8);
+                string json = streamReader.ReadToEnd();
+                fs.Close();
+                streamReader.Close();
                 PmEntiretyDef standard = JsonConvert.DeserializeObject<PmEntiretyDef>(json);
                 return standard;
             }
             else
             {
-                //
-                if (true)
-                {
-                    int a, b;
-                    a = 1;
-                    b = 1;
-                    a = b;
-                    return null;
-                }
+                return null;
             }
         }
+
     }
 }

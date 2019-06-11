@@ -9,7 +9,7 @@ namespace iS3.ImportTools.Core.Models
     /// <summary>
     /// Domain which refers to specific engineering field
     /// </summary>
-    public class PmDomainDef:LngBase
+    public class PmDomainDef:LangBase
     {
         public string Code { get; set; }
 

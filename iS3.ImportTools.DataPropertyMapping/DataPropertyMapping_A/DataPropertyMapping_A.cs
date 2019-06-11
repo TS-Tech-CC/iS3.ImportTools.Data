@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using iS3.ImportTools.Core.Interface;
 using iS3.ImportTools.Core.Models;
 using iS3.ImportTools.DataStanardTool.DSImporter;
+using iS3.ImportTools.DataStanardTool.StandardManager;
 
 namespace iS3.ImportTools.DataPropertyMapping
 {
@@ -27,7 +28,11 @@ namespace iS3.ImportTools.DataPropertyMapping
         {
             string aimDGObjectType = "Borehole";
             PmEntiretyDef def = new Importer_For_Json().GetSample();
-            PmDGObjectDef aimDGObjectDef = def.getDGObjectDefByCode(aimDGObjectType);
+
+            //StandardLoader standardLoader = new StandardLoader();
+            //PmEntiretyDef def = standardLoader.GetStandard();
+
+            PmDGObjectDef aimDGObjectDef = def.GetDGObjectDefByCode(aimDGObjectType);
 
             DataCarrier aimDC = new DataCarrier(aimDGObjectDef);
 

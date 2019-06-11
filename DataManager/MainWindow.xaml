@@ -1,0 +1,184 @@
+﻿<Window x:Class="DataManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataManager"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="iS3 Data Manager" Height="400" Width="688">
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="ListBoxItemStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Border x:Name="border" CornerRadius="8" Margin="2">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="border" Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="#FF6B6B6B" Offset="0.5"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <ToolTip x:Key="InforTip">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Name：" />
+                <TextBlock Text="{Binding Path=Name}"/>
+                <TextBlock Text="Type：" />
+                <TextBlock Text="{Binding Path=ClassDisplayText}"/>
+            </StackPanel>
+        </ToolTip>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="image/background.jpg"/>
+    </Window.Background>
+
+    
+    
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="56*"/>
+            <ColumnDefinition Width="699*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File" >
+                <MenuItem Header="Open" Click="Open_click"/>
+                <MenuItem Header="Save"/>
+                <MenuItem Header="Delete"/>
+            </MenuItem>
+            <MenuItem Header="Edit"/>
+            <MenuItem Header="View"/>
+            <MenuItem Header="Config">
+                <MenuItem Header="Initial Geology Standard" Click="ConfigGeology_Click"/>
+                <MenuItem Header="Initial Structure Standard" Click="ConfigStruct_Click"/>
+            </MenuItem>
+            <MenuItem Header="About"/>
+        </Menu>
+        
+        
+        <ListBox x:Name="ChoiceLB" HorizontalAlignment="Left" Grid.Row="1" ItemContainerStyle="{StaticResource ResourceKey=ListBoxItemStyle}" Background="#FF6EADD4" SelectionChanged="SelectionChanged" Grid.ColumnSpan="2">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBoxItem Content="Data Template"/>
+            <ListBoxItem Content="Data Entry"/>
+        </ListBox>
+        <TextBlock Grid.Row="1" Margin="302.641,7.38,177.856,5" Grid.Column="1" Text="Tunnel Type：" TextAlignment="Center" MinWidth="75" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="TunnelTypeCB" Grid.Column="1" HorizontalAlignment="Left" Margin="389.958,0,0,5" Grid.Row="1" 
+                  d:LayoutOverrides="Height" MinWidth="100"
+                  DisplayMemberPath="TunnelType" SelectionChanged="TunnelTypeCB_SelectionChanged"  MinHeight="18" />
+        
+        
+        
+        
+        
+        
+        <Grid x:Name="DataTemplateGrid" Grid.Row="2" Visibility="Visible" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="0">
+                <TextBlock Text="Domain:" Margin="20,0,0,0"/>
+                <TextBlock Text="Description:" Margin="230,0,40,0"/>
+                <!--<TextBlock Text="Object:" Margin="20,0,40,0"/>-->
+            </StackPanel>
+            <!--<StackPanel Orientation="Horizontal" Grid.Row="1">-->
+            <!--<TreeView x:Name="DataTemplateTreeView" Margin="5,0,5,0"/>-->
+            <!--<ListBox x:Name="DomainNameLB" Width="100" Margin="5,0,5,0"/>
+                <ListBox x:Name="ObjectNameLB" Width="100" Margin="25,0,5,0"/>-->
+            <!--<ListBox x:Name="DescriptionLB" Width="300" Margin="270,0,5,0"/>-->
+            <!--</StackPanel>-->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ListView x:Name="PropertyLV" Margin="40,0,-32,0" Grid.Column="1" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Auto" Width="Auto" MinWidth="350"
+                          >
+                    <ListView.View>
+                        <GridView>
+                            <!--Property-->
+                            <GridViewColumn Header="Property"  Width="auto" DisplayMemberBinding="{Binding LangStr}"/>
+                            <!--PropertyName-->
+                            <GridViewColumn Header="PropertyName" Width="auto" DisplayMemberBinding="{Binding PropertyName}"/>
+                            <!--DataType-->
+                            <GridViewColumn Header="DataType"  Width="auto" DisplayMemberBinding="{Binding DataType}"/>
+                            <!--Unit-->
+                            <GridViewColumn Header="Unit" Width="auto" DisplayMemberBinding="{Binding Unit}"/>
+                            <!--Description-->
+                            <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Description}"/>
+                        </GridView>
+                    </ListView.View>
+                    <System:String>Export Data Template</System:String>
+                </ListView>
+                <TreeView Grid.Column="0" x:Name="DataTemplateTreeview" Margin="10,0,14,0" SelectedItemChanged="DataTemplateTreeview_SelectedItemChanged"
+                          ItemsSource="{Binding TreeNodes,Mode=TwoWay}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate  ItemsSource="{Binding Path=ChildNodes}">
+                            <TextBlock Text="{Binding Context}"/>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <Setter Property="IsExpanded" Value="{Binding isExpanded, Mode=TwoWay}" />
+                            <Setter Property="FontWeight" Value="Normal" />
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                </TreeView>
+            </Grid>
+            <Button Margin="0,5,5,5" Grid.Row="2" Width="150" Height="20" Click="ExportDataTemplate_Click" HorizontalAlignment="Right" Content="Generate Template"/>
+        </Grid>
+        <Grid x:Name="DataEntryGrid" Grid.Row="2" Visibility="Collapsed" Grid.ColumnSpan="2" d:IsHidden="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120*"/>
+                <ColumnDefinition Width="363*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Width="100" Height="20" Content="Import Data" Click="ImportData_Click" HorizontalAlignment="Left" Margin="0,5"/>
+            <Button Grid.Row="0" Width="100" Height="20" Content="Save Data" Click="SaveData_Click" HorizontalAlignment="Right" Grid.Column="1" Margin="0,5"/>
+            <DataGrid x:Name="DataDG" Grid.Column="1" Margin="10,10,82,33" Grid.Row="1"
+                      AutoGenerateColumns="True" DataContext="{Binding}" CellEditEnding="DataDG_CellEditEnding" MinHeight="250">
+
+            </DataGrid>
+            <ListBox x:Name="DataHeaderLB" Margin="25,10,22,29" Grid.Row="1" MinHeight="250"
+                     SelectionMode="Single" 
+                     SelectionChanged="DataHeaderLB_SelectionChanged"
+                     DisplayMemberPath="{Binding}" HorizontalAlignment="Left" MinWidth="100"/>
+        </Grid>
+
+        
+        
+
+    </Grid>
+</Window>
+

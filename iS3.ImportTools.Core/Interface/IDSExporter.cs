@@ -14,6 +14,7 @@ namespace iS3.ImportTools.Core.Interface
     {
         //export dataStandard to ...
         //return the state of export
-        bool Export(PmEntiretyDef dataStandard,string path);
+        bool Export(PmEntiretyDef dataStandard, string path = null);
+        bool Export(PmDomainDef domain, string path = null);
     }
 }

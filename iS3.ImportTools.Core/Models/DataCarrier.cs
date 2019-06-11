@@ -35,8 +35,8 @@ namespace iS3.ImportTools.Core.Models
 
             foreach (PropertyMeta itemPM in ObjDef.PropertyContainer)
             {
-                //DataContainer.Columns.Add(itemPM.PropertyName, typeof(string));                     //创建全是String的DataTable
-                DataContainer.Columns.Add(itemPM.PropertyName,itemPM.DataType);     //创建各列格式匹配的DataTable
+                DataContainer.Columns.Add(itemPM.PropertyName, typeof(string));                     //创建全是String的DataTable
+                //DataContainer.Columns.Add(itemPM.PropertyName,itemPM.DataType);     //创建各列格式匹配的DataTable
             }
 
         }

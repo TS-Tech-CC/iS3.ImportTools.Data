@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iS3.ImportTools.Core.Models
 {
-    public class PmDGObjectDef:LngBase
+    public class PmDGObjectDef:LangBase
     { 
         public string Code { get; set; }
         public string Desctiption { get; set; }
@@ -17,27 +17,14 @@ namespace iS3.ImportTools.Core.Models
         }
 
 
-        private Dictionary<string, string> TypeDic = new Dictionary<string, string>()
-        {
-            { "System.Byte"        ,"[tinyint]"        },
-            { "System.Int16"       ,"[smallint]"       },
-            { "System.Int32"       ,"[int]"            },
-            { "System.Int64"       ,"[bigint]"         },
-
-            { "System.Byte[]"      ,"[varbinary](MAX)" },
-            { "System.Boolean"     ,"[bit]"            },
 
 
-            { "System.String"      ,"[nvarchar](MAX)"  },
 
-            { "System.DateTime"    ,"[datetime]"       },
 
-            { "System.Single"      ,"[real]"           },      //32位单精度浮点数,Float
-            { "System.Double"      ,"[float]"          },      //64位单精度浮点数
 
-            { "System.Decimal"     ,"[decimal](18,4)"  },      //SQL中decimal类似于numeric
 
-        };
+
+
 
         public string GetTableCreateSQL()
         {
@@ -60,12 +47,12 @@ namespace iS3.ImportTools.Core.Models
 
              */
 
-
+            var dic = new DataType().GetSQLType;
             string Ryu = string.Empty;
 
             foreach (PropertyMeta itemPM in PropertyContainer)
             {
-                Ryu += $"[{itemPM.PropertyName}]            {TypeDic[itemPM.DataType.ToString()]}          {(itemPM.NotNull?"NOT NULL":"NULL")}            {(itemPM.isKey? "IDENTITY(1,1)" : "")},";
+                Ryu += $"[{itemPM.PropertyName}]            {dic[itemPM.DataType]}          {(itemPM.Nullable?"NULL": "NOT NULL")}            {(itemPM.IsKey? "IDENTITY(1,1)" : "")},";
             }
 
 

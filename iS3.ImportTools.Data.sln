@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWriting_MultiTableTime"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataWriting_MultiTableCount", "iS3.ImportTools.DataWriting\DataWriting_MultiTableCount\DataWriting_MultiTableCount.csproj", "{F8A1C42A-0B48-4079-BA62-BA811123C6B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager", "DataManager\DataManager.csproj", "{D55E95FE-4816-46CE-BC56-7FD9C45C1446}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8A1C42A-0B48-4079-BA62-BA811123C6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D55E95FE-4816-46CE-BC56-7FD9C45C1446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D55E95FE-4816-46CE-BC56-7FD9C45C1446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D55E95FE-4816-46CE-BC56-7FD9C45C1446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D55E95FE-4816-46CE-BC56-7FD9C45C1446}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

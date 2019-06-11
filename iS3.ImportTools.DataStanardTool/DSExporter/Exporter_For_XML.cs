@@ -14,5 +14,10 @@ namespace iS3.ImportTools.DataStanardTool.DSExporter
         {
             return true;
         }
+
+        public bool Export(PmDomainDef domain, string path = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
