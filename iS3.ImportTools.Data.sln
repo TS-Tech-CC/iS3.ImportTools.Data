@@ -47,8 +47,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager", "DataManager\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataEntryService", "DataEntryService\DataEntryService.csproj", "{7EE4C4B1-0FD1-4F23-901D-83477A4D12E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{DC86B032-9F50-44C0-BA09-946916A8D32B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,10 +121,6 @@ Global
 		{7EE4C4B1-0FD1-4F23-901D-83477A4D12E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EE4C4B1-0FD1-4F23-901D-83477A4D12E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EE4C4B1-0FD1-4F23-901D-83477A4D12E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC86B032-9F50-44C0-BA09-946916A8D32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC86B032-9F50-44C0-BA09-946916A8D32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC86B032-9F50-44C0-BA09-946916A8D32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC86B032-9F50-44C0-BA09-946916A8D32B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

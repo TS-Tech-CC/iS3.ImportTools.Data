@@ -1,12 +1,23 @@
-﻿using System;
+﻿using DataEntryService.WebAPI.model;
+using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using WebApi.model;
 
-namespace WebApi.controllers
+
+namespace DataEntryService.WebAPI.controllers
 {
+    [RoutePrefix("api/demo")]
     public class DemoController : ApiController
     {
+        [HttpGet]
+        [Route("Server")]
+        public bool StartServer()
+        {
+            return Service1.StartOneThread();
+        }
+
+
+
         [HttpGet]
         [Route("student")]
         public dynamic allStudents()

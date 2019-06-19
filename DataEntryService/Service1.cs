@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DataEntryService.WebAPI;
+using iS3.ImportTools.Core.Log;
+using iS3.ImportTools.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,33 +21,79 @@ namespace DataEntryService
             InitializeComponent();
         }
 
+
         
         protected override void OnStart(string[] args)
         {
-            FileStream fs = new FileStream(@"C:\Users\CHB\Desktop\新建文本文档.txt", FileMode.OpenOrCreate);
-            byte[] data = Encoding.Default.GetBytes(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "\r\n");
-            fs.Write(data, 0, data.Length);
+
+            WebServer.Start();
+            iS3.ImportTools.Core.Log.LogWrite.log.Info("服务已开启");
+
+            DllImport.LoadExtension();
+        }
 
 
+        static DataSchema dataSchema;
+        public static bool StartOneThread()
+        {
             try
             {
-                WebApi.WebServer.Start();
+                DataSchemaConfig config1 = new DataSchemaConfig()
+                {
+                    DataAcquireDllName = "DataAcquire_SQL",
+                    DataFormatConverterDllName = "DataFormatConverter_DataTable",
+                    DataPropertyMappingDllName = "DataPropertyMapping_A",
+                    DataVerificationDllName = "DataVerification_A",
+                    DataWritingDllName = "DataWriting_MultiTableCount",
+                    WritingConfig = new DataSchemaWritingConfig()
+                    {
+                        IP = "127.0.0.1",
+                        DBName = "EmulatedDS",
+                        UserID = "sa",
+                        Pwd = "123456",
+                        TableName = "DataDestination",
+
+                        TimeSpan = 60,
+                        TimeFieldName = "BoreholeTime",
+
+
+                        NumberCount = 16,
+                    }
+
+                };
+
+                dataSchema = new DataSchema(config1);
+                LogWrite.log.Info("DataSchema初始化成功");
+
+                dataSchema.Start();
+
+                LogWrite.log.Info("线程成功开启");
+                return true;
+
             }
             catch (Exception err)
             {
-                data = Encoding.Default.GetBytes(err.Message);
-                fs.Write(data, 0, data.Length);
+
+                iS3.ImportTools.Core.Log.LogWrite.log.Error(err.Message);
+                return false;
             }
 
-            fs.Close();
+
         }
+
+
+
+        public static bool StopTheThread()
+        {
+            dataSchema.Stop();
+
+            return true;
+        }
+
 
         protected override void OnStop()
         {
-            FileStream fs = new FileStream(@"C:\Users\CHB\Desktop\新建文本文档.txt", FileMode.Append);
-            byte[] data = Encoding.Default.GetBytes(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
-            fs.Write(data, 0, data.Length);
-            fs.Close();
+
         }
     }
 }

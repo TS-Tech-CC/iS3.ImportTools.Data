@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using iS3.ImportTools.Core.Interface;
+using iS3.ImportTools.Core.Log;
+using Newtonsoft.Json;
 
 namespace iS3.ImportTools.Core.Models
 {
@@ -60,6 +62,8 @@ namespace iS3.ImportTools.Core.Models
             
 
             Assembly ASDataAcq = AllAssembly.FirstOrDefault(x => x.FullName.Contains(config.DataAcquireDllName));           //查找指定程序集（指定DLL）
+            if (ASDataAcq == null)
+                LogWrite.log.Error($"Assembly中不存在名称为：{config.DataAcquireDllName}的程序集");
             Type TYDataAcq = ASDataAcq.GetTypes().FirstOrDefault(x => x.FullName.Contains(config.DataAcquireDllName));      //在该DLL中查找指定类
             DataAcquire = (IDataAcquire)ASDataAcq.CreateInstance(TYDataAcq.FullName);                                       //从该DLL创建其中指定类的实例
             MethodStart = TYDataAcq.GetMethod("Start");                                                                     //从类中获取指定的方法
@@ -96,7 +100,14 @@ namespace iS3.ImportTools.Core.Models
 
         public void Start()
         {
-            MethodStart.Invoke(DataAcquire, new Action<object>[] { DataProcess });
+            try
+            {
+                MethodStart.Invoke(DataAcquire, new Action<object>[] { DataProcess });
+            }
+            catch (Exception err)
+            {
+                LogWrite.log.Error(err.Message + "  " + err.InnerException.Message);
+            }
         }
         public void Stop()
         {
@@ -135,20 +146,34 @@ namespace iS3.ImportTools.Core.Models
 
         private void DataProcess(object RawData)
         {
+            try
+            {
+                LogWrite.log.Info("成功读取到数据" + JsonConvert.SerializeObject(RawData as DataTable));
 
-            DataCarrier srcDC = (DataCarrier)MethodConvert.Invoke(DataFormatConverter, new object[] { RawData });
+                DataCarrier srcDC = (DataCarrier)MethodConvert.Invoke(DataFormatConverter, new object[] { RawData });
+                LogWrite.log.Info("成功转换为" + srcDC.DataContainer.Rows.Count + "条数据");
 
-            DataCarrier aimDC = (DataCarrier)MethodMapping.Invoke(DataPropertyMapping, new object[] { srcDC });
-
-            DataCarrier chkDC = (DataCarrier)MethodVerification.Invoke(DataVerification, new object[] { aimDC });
-
-
-
-            chkDV = chkDC.DataContainer.DefaultView;
-            state = state.Split(new string[] { ": " }, StringSplitOptions.RemoveEmptyEntries)[0] + ": " + DateTime.Now.ToString("HH:mm:ss.fff");
+                DataCarrier aimDC = (DataCarrier)MethodMapping.Invoke(DataPropertyMapping, new object[] { srcDC });
+                LogWrite.log.Info("成功映射为" + aimDC.DataContainer.Rows.Count + "条数据");
 
 
-            MethodWriting.Invoke(DataWriting, new object[] {_Config.WritingConfig, chkDC });
+                DataCarrier chkDC = (DataCarrier)MethodVerification.Invoke(DataVerification, new object[] { aimDC });
+                LogWrite.log.Info("成功校验");
+
+
+                ////chkDV = chkDC.DataContainer.DefaultView;
+                ////state = state.Split(new string[] { ": " }, StringSplitOptions.RemoveEmptyEntries)[0] + ": " + DateTime.Now.ToString("HH:mm:ss.fff");
+
+                LogWrite.log.Info("准备写入");
+                MethodWriting.Invoke(DataWriting, new object[] { _Config.WritingConfig, chkDC });
+
+                LogWrite.log.Info("写入成功");
+
+            }
+            catch (Exception err)
+            {
+                LogWrite.log.Error("数据处理流程报错：" + err.Message + "," + err.InnerException.Message);
+            }
 
         }
     }

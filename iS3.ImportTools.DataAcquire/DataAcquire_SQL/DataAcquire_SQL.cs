@@ -1,5 +1,6 @@
 ﻿using iS3.ImportTools.Core.Interface;
 using iS3.ImportTools.Core.Models;
+using iS3.ImportTools.Core.Log;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,8 +30,6 @@ namespace iS3.ImportTools.DataAcqire
             sqlConn = new SqlConnection(sqlConnBuild.ConnectionString);
             sqlConn.Open();
 
-
-
             this.DataProcessHandler = DataProcessHandler;
 
             Thread threadRead = new Thread(RetrieveData);
@@ -49,9 +48,9 @@ namespace iS3.ImportTools.DataAcqire
                 if (dt.Rows.Count > 0)
                 {
                     datetimeStart = Convert.ToDateTime((dt.Rows[dt.Rows.Count - 1]["DateTime"]));
+                    DataProcessHandler?.Invoke(dt);
                 }
 
-                DataProcessHandler?.Invoke(dt);
 
                 Thread.Sleep(1000);
             }

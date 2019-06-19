@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using DataEntryService.WebAPI.filters;
+using Microsoft.Owin;
 using Owin;
 using System;
 using System.IO;
@@ -6,13 +7,13 @@ using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebApi.filters;
 
-namespace WebApi
+[assembly: OwinStartup(typeof(DataEntryService.WebAPI.Startup))]
+
+namespace DataEntryService.WebAPI
 {
-    class Startup
+    public class Startup
     {
-
         public void Configuration(IAppBuilder app)
         {
             // web api 接口
@@ -26,6 +27,7 @@ namespace WebApi
         }
 
 
+
         /// <summary>
         /// HttpConfig初始化
         /// </summary>
@@ -34,11 +36,13 @@ namespace WebApi
             HttpConfiguration config = new HttpConfiguration();
 
             // 配置 http 服务的路由
-            config.Routes.MapHttpRoute(
-                name: "Default",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
+            config.MapHttpAttributeRoutes();
+
+            //config.Routes.MapHttpRoute(
+            //    name: "Default",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
 
 
             //跨域允许设置

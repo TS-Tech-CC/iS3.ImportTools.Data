@@ -19,13 +19,13 @@ namespace iS3.ImportTools.DataFormatConverter
                 Desctiption = "XXXXXXXXXXXXXXX",
                 PropertyContainer = new List<PropertyMeta>()
                 {
-                    new PropertyMeta(){ PropertyName = "ID" ,DataType = typeof(int)},
-                    new PropertyMeta(){ PropertyName = "SensorID" ,DataType = typeof(string)},
-                    new PropertyMeta(){ PropertyName = "DateTime" ,DataType = typeof(DateTime)},
-                    new PropertyMeta(){ PropertyName = "Value1" ,DataType = typeof(double)},
-                    new PropertyMeta(){ PropertyName = "Value2" ,DataType = typeof(double)},
-                    new PropertyMeta(){ PropertyName = "Value3" ,DataType = typeof(double)},
-                    new PropertyMeta(){ PropertyName = "Value4" ,DataType = typeof(double)},
+                    new PropertyMeta(){ PropertyName = "ID" ,DataType = "int"},
+                    new PropertyMeta(){ PropertyName = "SensorID" ,DataType = "string"},
+                    new PropertyMeta(){ PropertyName = "DateTime" ,DataType = "dateTime"},
+                    new PropertyMeta(){ PropertyName = "Value1" ,DataType = "double"},
+                    new PropertyMeta(){ PropertyName = "Value2" ,DataType = "double"},
+                    new PropertyMeta(){ PropertyName = "Value3" ,DataType = "double"},
+                    new PropertyMeta(){ PropertyName = "Value4" ,DataType = "double"},
                 }
             };
 

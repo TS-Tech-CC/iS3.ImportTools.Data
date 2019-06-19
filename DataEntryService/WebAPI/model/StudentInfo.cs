@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebApi.model
+namespace DataEntryService.WebAPI.model
 {
     public class StudentInfo
     {

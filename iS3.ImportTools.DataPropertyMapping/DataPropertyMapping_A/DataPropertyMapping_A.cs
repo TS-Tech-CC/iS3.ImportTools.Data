@@ -33,6 +33,13 @@ namespace iS3.ImportTools.DataPropertyMapping
             //PmEntiretyDef def = standardLoader.GetStandard();
 
             PmDGObjectDef aimDGObjectDef = def.GetDGObjectDefByCode(aimDGObjectType);
+            if (aimDGObjectDef == null)
+                throw new Exception($"未查询到名为{aimDGObjectType}的结构定义元数据");
+
+
+
+
+
 
             DataCarrier aimDC = new DataCarrier(aimDGObjectDef);
 

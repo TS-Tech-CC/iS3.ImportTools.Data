@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
-namespace WebApi.filters
+namespace DataEntryService.WebAPI.filters
 {
-    public class CustomAuthorizationFilterAttribute : AuthorizationFilterAttribute
+    class CustomAuthorizationFilterAttribute : AuthorizationFilterAttribute
     {
+
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             base.OnAuthorization(actionContext);
             //Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") + "请求：  " + actionContext.Request.RequestUri.AbsolutePath.ToString());
         }
-
 
     }
 }
